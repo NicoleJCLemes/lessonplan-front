@@ -25,15 +25,17 @@ export default function SignUp() {
         }
 
         const promise = api.post("sign-up", userData);
+        
         promise.then((response) => {
             alert("Registered successfully"); 
-            navigate("/")});
+            navigate("/")
+        });
 
         promise.catch((error) => { 
             alert(error.response.statusText);
             navigate("/sign-up");
-            window.location.reload(true)}
-        );
+            window.location.reload(true)
+        });
     }
 
     function handleSubmit(event) {
