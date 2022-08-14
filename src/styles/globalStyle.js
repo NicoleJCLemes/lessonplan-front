@@ -17,6 +17,13 @@ body{
 
 a{
     text-decoration: none;
+    color: #000000;
+}
+.back-icon {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    font-size: 20px;
 }
 `
 

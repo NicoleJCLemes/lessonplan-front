@@ -1,10 +1,7 @@
-import HeaderStyle from "../styles/HeaderStyle.js"
+import HeaderStyle from "../styles/HeaderStyle.js";
 
-export default function Header() {
+export default function Header(props) {
     return (
-        <HeaderStyle>
-            <h1>lesson plan</h1>
-            <img />
-        </HeaderStyle>
+        <HeaderStyle>Olá, {props.name}</HeaderStyle>
     )
-}
+};

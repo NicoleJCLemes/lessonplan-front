@@ -1,4 +1,4 @@
-import Header from "../components/Header.js";
+import Logo from "../components/Logo.js";
 import Form from "../styles/Form.js";
 import Input from "../styles/Input.js";
 import Container from "../styles/Container.js";
@@ -45,7 +45,7 @@ export default function SignUp() {
 
     return (
         <Container>
-            <Header />
+            <Logo />
             <Form onSubmit={handleSubmit}>
                 <Input type="text" placeholder="nome" value={name} onChange={(e) => setName(e.target.value)} required />
                 <Input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />

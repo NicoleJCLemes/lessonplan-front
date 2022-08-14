@@ -1,4 +1,4 @@
-import Header from "../components/Header.js";
+import Logo from "../components/Logo.js";
 import Container from "../styles/Container.js";
 import Form from "../styles/Form.js";
 import Input from "../styles/Input.js";
@@ -15,7 +15,7 @@ export default function SignIn() {
 
     const navigate = useNavigate();
     const context = useContext(UserContext);
-    const { setToken } = context;
+    const { setToken, setName } = context;
 
     function login() {
         const loginData = {
@@ -26,15 +26,16 @@ export default function SignIn() {
         const promise = api.post("sign-in", loginData);
 
         promise.then((response) => {
-            localStorage.setItem("token", response.data);
-            setToken(response.data);
-            console.log(response.data);
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("name", response.data.name);
+            setName(response.data.name);
+            setToken(response.data.token);
             navigate("/home");
         });
 
         promise.catch((error) => { 
-            alert(error.response.statusText);
-            navigate("/sign-in");
+            alert(error.response.data.error?error.response.data.error:error.response.data);
+            navigate("/");
             window.location.reload(true);
         });
     }
@@ -46,7 +47,7 @@ export default function SignIn() {
 
     return (
         <Container>
-            <Header />
+            <Logo />
             <Form onSubmit={handleSubmit}>
                 <Input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <Input type="password" placeholder="senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
