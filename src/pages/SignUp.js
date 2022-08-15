@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api.js";
 import { IoIosArrowBack } from "react-icons/io";
+import Responsive from "../styles/Responsive.js";
 
 export default function SignUp() {
 
@@ -45,16 +46,18 @@ export default function SignUp() {
     }
 
     return (
-        <Container>
-            <Link to="/"><IoIosArrowBack className="back-icon" /></Link>
-            <Logo />
-            <Form onSubmit={handleSubmit}>
-                <Input type="text" placeholder="nome" value={name} onChange={(e) => setName(e.target.value)} required />
-                <Input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <Input type="password" placeholder="senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <Input type="password" placeholder="confirme a senha" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} required />
-                <Button type="submit" name="Cadastrar" />
-            </Form>
-        </Container>
+        <Responsive>
+            <Container>
+                <Link to="/"><IoIosArrowBack className="back-icon" /></Link>
+                <Logo />
+                <Form onSubmit={handleSubmit}>
+                    <Input type="text" placeholder="nome" value={name} onChange={(e) => setName(e.target.value)} required />
+                    <Input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <Input type="password" placeholder="senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <Input type="password" placeholder="confirme a senha" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} required />
+                    <Button type="submit" name="Cadastrar" />
+                </Form>
+            </Container>
+        </Responsive>
     )
 };

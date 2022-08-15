@@ -39,7 +39,6 @@ export default function Home() {
             </main>
             <Navbar />
         </Container>
-
     ) : (
         <Container>
             <IoIosExit className="exit-icon" onClick={logOut} />

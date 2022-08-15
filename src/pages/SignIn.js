@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../UserContext.js";
 import api from "../api.js";
 import styled from "styled-components";
+import Responsive from "../styles/Responsive.js";
 
 export default function SignIn() {
 
@@ -47,6 +48,7 @@ export default function SignIn() {
     };
 
     return (
+    <Responsive>
         <Container>
             <Logo />
             <Form onSubmit={handleSubmit}>
@@ -58,6 +60,7 @@ export default function SignIn() {
                 </Div>
             </Form>
         </Container>
+    </Responsive>
     )
 };
 

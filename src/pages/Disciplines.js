@@ -7,6 +7,7 @@ import Header from "../components/Header.js";
 import Navbar from "../components/Navbar.js";
 import UserContext from "../UserContext.js";
 import api from "../api.js";
+import Responsive from "../styles/Responsive.js";
 
 export default function Disciplines() {
 
@@ -25,7 +26,7 @@ export default function Disciplines() {
     }, []);
 
     return disciplines.length === 0 ? (
-        <>
+        <Responsive>
             <Link to="/home"><IoIosArrowBack className="back-icon" /></Link>
             <Header name={name} />
             <Main>
@@ -33,9 +34,9 @@ export default function Disciplines() {
                 <AddButton onClick={() => navigate("/disciplines/create")} />
             </Main>
             <Navbar />
-        </>
+        </Responsive>
     ) : (
-        <>
+        <Responsive>
             <Link to="/home"><IoIosArrowBack className="back-icon" /></Link>
             <Header name={name} />
             <Main>
@@ -49,7 +50,7 @@ export default function Disciplines() {
                 <AddButton onClick={() => navigate("/disciplines/create")} />
             </Main>
             <Navbar />
-        </>
+        </Responsive>
     );
 };
 
