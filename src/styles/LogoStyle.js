@@ -8,7 +8,7 @@ const LogoStyle = styled.header`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    margin: 20px 0;
+    margin: 70px 0 30px 0;
 
     img {
         width: 30px;

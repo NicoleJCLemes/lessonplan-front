@@ -120,11 +120,14 @@ export default function CreateLessons() {
 
 const Div = styled.div`
 
+    input {
+        height: 55px;
+    }
+
     form {
         height: 100%;
         margin: 0;
-        padding-top: 100px;
-        padding-bottom: 50px;
+        padding: 50px 0;
     }
 
     .options {
@@ -132,6 +135,7 @@ const Div = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        margin-bottom: 30px;
     }
 
     .disciplines, .classes {
@@ -140,7 +144,7 @@ const Div = styled.div`
         justify-content: space-evenly;
 
         p {
-            margin-bottom: 10px;
+            margin: 15px 0;
         }
 
         div {
@@ -152,6 +156,7 @@ const Div = styled.div`
         button {
             margin-bottom: 7px;
             width: 100px;
+            height: 50px;
             word-break: break-word;
         }
     }

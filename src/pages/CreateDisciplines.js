@@ -7,6 +7,7 @@ import UserContext from "../UserContext.js";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../styles/Container.js";
 import { IoIosArrowBack } from "react-icons/io";
+import styled from "styled-components";
 
 export default function CreateDisciplines() {
 
@@ -34,11 +35,26 @@ export default function CreateDisciplines() {
 
     return (
         <Container>
-            <Link to="/disciplines"><IoIosArrowBack className="back-icon" /></Link>
-            <Form onSubmit={handleSubmit}>
-                <Input type="text" placeholder="nome da disciplina" value={disciplineName} onChange={(e) => setDisciplineName(e.target.value)} required />
-                <Button type="submit" name="Criar" />
-            </Form>
+            <Div>
+                <Link to="/disciplines"><IoIosArrowBack className="back-icon" /></Link>
+                <Form onSubmit={handleSubmit}>
+                    <Input type="text" placeholder="nome da disciplina" value={disciplineName} onChange={(e) => setDisciplineName(e.target.value)} required />
+                    <Button type="submit" name="Criar" />
+                </Form>
+            </Div>
         </Container>
     )
-}
+};
+
+const Div = styled.div`
+
+    form {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    height: 100%;
+`
