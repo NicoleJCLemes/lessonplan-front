@@ -8,6 +8,9 @@ import Disciplines from "./pages/Disciplines.js";
 import GlobalStyle from "./styles/globalStyle.js";
 import Reset from "./styles/reset.js";
 import UserContext from "./UserContext.js"
+import CreateDisciplines from "./pages/CreateDisciplines.js";
+import CreateClasses from "./pages/CreateClasses.js";
+import CreateLessons from "./pages/CreateLessons.js";
 
 export default function App() {
 
@@ -27,6 +30,9 @@ export default function App() {
                     <Route path="/home" element={<Home />} />
                     <Route path="/disciplines" element={<Disciplines />} />
                     <Route path="/classes" element={<Classes />} />
+                    <Route path="/disciplines/create" element={<CreateDisciplines />} />
+                    <Route path="/classes/create" element={<CreateClasses />} />
+                    <Route path="/lessons/create" element={<CreateLessons />} />
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>

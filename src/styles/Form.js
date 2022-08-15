@@ -6,7 +6,7 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 40px;
 `
 
 export default Form;

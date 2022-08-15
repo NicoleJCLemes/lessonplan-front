@@ -14,6 +14,7 @@ body{
 .root{
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 a{
@@ -21,10 +22,11 @@ a{
     color: #000000;
 }
 .back-icon {
-    position: absolute;
+    position: fixed;
     top: 15px;
     left: 10px;
     font-size: 20px;
+    z-index: 1;
 }
 `
 

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AddButton from "../components/AddButton.js";
 import Header from "../components/Header.js";
@@ -13,6 +13,7 @@ export default function Disciplines() {
     const context = useContext(UserContext);
     const { name, token } = context;
     const [disciplines, setDisciplines] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const promise = api.get("disciplines", {
@@ -20,10 +21,20 @@ export default function Disciplines() {
                 "Authorization": `Bearer ${token}`
             }
         });
-        promise.then((response) => setDisciplines(response.data));
+        promise.then((response) => setDisciplines(response.data)); // eslint-disable-next-line
     }, []);
 
-    return (
+    return disciplines.length === 0 ? (
+        <>
+            <Link to="/home"><IoIosArrowBack className="back-icon" /></Link>
+            <Header name={name} />
+            <Main>
+                <div className="empty-data">Você ainda não possui disciplinas cadastradas!</div>
+                <AddButton onClick={() => navigate("/disciplines/create")} />
+            </Main>
+            <Navbar />
+        </>
+    ) : (
         <>
             <Link to="/home"><IoIosArrowBack className="back-icon" /></Link>
             <Header name={name} />
@@ -35,7 +46,7 @@ export default function Disciplines() {
                         </div>
                     )
                 })}
-                <AddButton />
+                <AddButton onClick={() => navigate("/disciplines/create")} />
             </Main>
             <Navbar />
         </>
@@ -61,5 +72,18 @@ const Main = styled.main`
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .empty-data {
+        width: 80vw;
+        height: 65vh;
+        border: 1px solid black;
+        border-radius: 20px;
+        font-size: 17px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 `

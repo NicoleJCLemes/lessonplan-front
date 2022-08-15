@@ -4,7 +4,7 @@ import Form from "../styles/Form.js";
 import Input from "../styles/Input.js";
 import Button from "../components/Button.js";
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../UserContext.js";
 import api from "../api.js";
 import styled from "styled-components";

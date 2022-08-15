@@ -33,7 +33,7 @@ export default function SignUp() {
         });
 
         promise.catch((error) => { 
-            alert(error.response.statusText);
+            alert(error.response.data.error?error.response.data.error:error.response.data);
             navigate("/sign-up");
             window.location.reload(true)
         });
