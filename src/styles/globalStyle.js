@@ -3,16 +3,17 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 * {
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
     min-height: 100vh;
     width: 100%;
-    font-family: 'Poppins', sans-serif;
 }
 
 .root{
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 a{

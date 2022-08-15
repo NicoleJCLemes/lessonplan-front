@@ -4,9 +4,10 @@ import Form from "../styles/Form.js";
 import Input from "../styles/Input.js";
 import Button from "../components/Button.js";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../UserContext.js";
 import api from "../api.js";
+import styled from "styled-components";
 
 export default function SignIn() {
 
@@ -51,8 +52,37 @@ export default function SignIn() {
             <Form onSubmit={handleSubmit}>
                 <Input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <Input type="password" placeholder="senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <Button type="submit" name="Entrar" />
+                <Div>
+                    <Button type="submit" name="Entrar" />
+                    <p onClick={() => navigate("/sign-up")}>Cadastrar</p>
+                </Div>
             </Form>
         </Container>
     )
-}
+};
+
+const Div = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-around;
+    text-align: center;
+    line-height: 50px;
+    font-size: 15px;
+    margin-top: 10px;
+
+    button {
+        margin: 0;
+        width: 40%;
+    }
+
+    p {
+        width: 40%;
+        height: 50px;
+        border: none;
+        background-color: #DCDCDC;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);    
+        font-size: 15px;
+    }
+`

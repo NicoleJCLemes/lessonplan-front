@@ -4,8 +4,9 @@ import Input from "../styles/Input.js";
 import Container from "../styles/Container.js";
 import Button from "../components/Button.js";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api.js";
+import { IoIosArrowBack } from "react-icons/io";
 
 export default function SignUp() {
 
@@ -45,6 +46,7 @@ export default function SignUp() {
 
     return (
         <Container>
+            <Link to="/"><IoIosArrowBack className="back-icon" /></Link>
             <Logo />
             <Form onSubmit={handleSubmit}>
                 <Input type="text" placeholder="nome" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -55,4 +57,4 @@ export default function SignUp() {
             </Form>
         </Container>
     )
-}
+};

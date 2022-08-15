@@ -1,33 +1,41 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import AddButton from "../components/AddButton.js";
 import Header from "../components/Header.js";
 import Navbar from "../components/Navbar.js";
 import UserContext from "../UserContext.js";
+import api from "../api.js";
 
 export default function Disciplines() {
 
     const context = useContext(UserContext);
-    const { name } = context;
+    const { name, token } = context;
+    const [disciplines, setDisciplines] = useState([]);
+
+    useEffect(() => {
+        const promise = api.get("disciplines", {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        promise.then((response) => setDisciplines(response.data));
+    }, []);
 
     return (
         <>
             <Link to="/home"><IoIosArrowBack className="back-icon" /></Link>
             <Header name={name} />
             <Main>
-                <div>
-                    Matemática básica
-                </div>
-                <div>
-                    Disciplina top
-                </div>
-                <div>
-                    Se for um nome super grande
-                </div>
-                <div>
-                    Disciplina top
-                </div>
+                {disciplines.map((discipline) => {
+                    return (
+                        <div key={discipline.id}>
+                            {discipline.name}
+                        </div>
+                    )
+                })}
+                <AddButton />
             </Main>
             <Navbar />
         </>
@@ -47,7 +55,7 @@ const Main = styled.main`
         border: 1px solid black;
         margin-bottom: 15px;
         text-align: center;
-        font-size: 20px;
+        font-size: 17px;
         padding: 5px;
         border-radius: 10px;
         display: flex;
