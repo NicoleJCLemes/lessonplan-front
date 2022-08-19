@@ -32,7 +32,7 @@ export default function Classes() {
                 <div className="empty-data">
                     <p>Você ainda não possui alunos e/ou turmas cadastrados!</p>
                 </div>
-                <AddButton />
+                <AddButton onClick={() => navigate("/classes/create")} />
             </Main>
             <Navbar />
         </>
